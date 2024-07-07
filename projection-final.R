@@ -383,38 +383,38 @@ demographics_onerace_graph(demographics_onerace_2010, 2010)
 
 
 #how do races change over time in the Sioux Falls MSA?
-white_list<- list()
-extract_white_estimate <- function(df, year) {
+w_list<- list()
+extract_w_estimate <- function(df, year) {
   df$Label <- str_trim(df$Label)
-  white_estimate <- df %>%
+  w_estimate <- df %>%
     filter(Label == "White") %>%
     pull(Estimate)
-  print(white_estimate)
-  white_list<<- append(white_list, white_estimate)
+  print(w_estimate)
+  w_list<<- append(w_list, w_estimate)
 }
-extract_white_estimate(demographics_onerace_2010, 2010)
-extract_white_estimate(demographics_onerace_2011, 2011)
-extract_white_estimate(demographics_onerace_2012, 2012)
-extract_white_estimate(demographics_onerace_2013, 2013)
-extract_white_estimate(demographics_onerace_2014, 2014)
-extract_white_estimate(demographics_onerace_2015, 2015)
-extract_white_estimate(demographics_onerace_2016, 2016)
-extract_white_estimate(demographics_onerace_2017, 2017)
-extract_white_estimate(demographics_onerace_2018, 2018)
-extract_white_estimate(demographics_onerace_2019, 2019)
-extract_white_estimate(demographics_onerace_2021, 2021)
-extract_white_estimate(demographics_onerace_2022, 2022)
+extract_w_estimate(demographics_onerace_2010, 2010)
+extract_w_estimate(demographics_onerace_2011, 2011)
+extract_w_estimate(demographics_onerace_2012, 2012)
+extract_w_estimate(demographics_onerace_2013, 2013)
+extract_w_estimate(demographics_onerace_2014, 2014)
+extract_w_estimate(demographics_onerace_2015, 2015)
+extract_w_estimate(demographics_onerace_2016, 2016)
+extract_w_estimate(demographics_onerace_2017, 2017)
+extract_w_estimate(demographics_onerace_2018, 2018)
+extract_w_estimate(demographics_onerace_2019, 2019)
+extract_w_estimate(demographics_onerace_2021, 2021)
+extract_w_estimate(demographics_onerace_2022, 2022)
 
-white_list<- sapply(white_list, unlist)
+w_list<- sapply(w_list, unlist)
 years<- c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022)
-white_df<- data.frame(white_list, years)
+w_df<- data.frame(w_list, years)
 
 
-ggplot(white_df, aes(x = years, y = white_list)) +
+ggplot(w_df, aes(x = years, y = wh_list)) +
   geom_line(color = "blue") +
   geom_point(color = "blue", size = 3) +
   labs(
-    title = "White Population Estimates Over Time",
+    title = "Population Estimates Over Time",
     x = "Year",
     y = "Population Estimate"
   ) +
@@ -422,36 +422,36 @@ ggplot(white_df, aes(x = years, y = white_list)) +
 
 ##################################################################
 
-black_list<- list()
-extract_black_estimate <- function(df, year) {
+b_list<- list()
+extract_b_estimate <- function(df, year) {
   df$Label <- str_trim(df$Label)
-  black_estimate <- df %>%
+  b_estimate <- df %>%
     filter(Label == "Black or African American") %>%
     pull(Estimate)
-  print(black_estimate)
-  black_list<<- append(black_list, black_estimate)
+  print(b_estimate)
+  b_list<<- append(b_list, b_estimate)
 }
 
 
-extract_black_estimate(demographics_onerace_2010, 2010)
-extract_black_estimate(demographics_onerace_2011, 2011)
-extract_black_estimate(demographics_onerace_2012, 2012)
-extract_black_estimate(demographics_onerace_2013, 2013)
-extract_black_estimate(demographics_onerace_2014, 2014)
-extract_black_estimate(demographics_onerace_2015, 2015)
-extract_black_estimate(demographics_onerace_2016, 2016)
-extract_black_estimate(demographics_onerace_2017, 2017)
-extract_black_estimate(demographics_onerace_2018, 2018)
-extract_black_estimate(demographics_onerace_2019, 2019)
-extract_black_estimate(demographics_onerace_2021, 2021)
-extract_black_estimate(demographics_onerace_2022, 2022)
+extract_b_estimate(demographics_onerace_2010, 2010)
+extract_b_estimate(demographics_onerace_2011, 2011)
+extract_b_estimate(demographics_onerace_2012, 2012)
+extract_b_estimate(demographics_onerace_2013, 2013)
+extract_b_estimate(demographics_onerace_2014, 2014)
+extract_b_estimate(demographics_onerace_2015, 2015)
+extract_b_estimate(demographics_onerace_2016, 2016)
+extract_b_estimate(demographics_onerace_2017, 2017)
+extract_b_estimate(demographics_onerace_2018, 2018)
+extract_b_estimate(demographics_onerace_2019, 2019)
+extract_b_estimate(demographics_onerace_2021, 2021)
+extract_b_estimate(demographics_onerace_2022, 2022)
 
 
-black_list<- sapply(black_list, unlist)
+b_list<- sapply(b_list, unlist)
 years<- c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022)
-black_df<- data.frame(black_list, years)
+b_df<- data.frame(b_list, years)
 
-ggplot(black_df, aes(x = years, y = black_list)) +
+ggplot(b_df, aes(x = years, y = b_list)) +
   geom_line(color = "blue") +
   geom_point(color = "black", size = 3) +
   labs(
@@ -504,34 +504,34 @@ ggplot(alaskan_df, aes(x = years, y = alaskan_list)) +
 
 ############################
 
-asian_list<- list()
-extract_asian_estimate <- function(df, year) {
+a_list<- list()
+extract_a_estimate <- function(df, year) {
   df$Label <- str_trim(df$Label)
-  asian_estimate <- df %>%
+  a_estimate <- df %>%
     filter(Label == "Asian") %>%
     pull(Estimate)
-  print(asian_estimate)
-  asian_list<<- append(asian_list, asian_estimate)
+  print(a_estimate)
+  a_list<<- append(a_list, a_estimate)
 }
 
-extract_asian_estimate(demographics_onerace_2010, 2010)
-extract_asian_estimate(demographics_onerace_2011, 2011)
-extract_asian_estimate(demographics_onerace_2012, 2012)
-extract_asian_estimate(demographics_onerace_2013, 2013)
-extract_asian_estimate(demographics_onerace_2014, 2014)
-extract_asian_estimate(demographics_onerace_2015, 2015)
-extract_asian_estimate(demographics_onerace_2016, 2016)
-extract_asian_estimate(demographics_onerace_2017, 2017)
-extract_asian_estimate(demographics_onerace_2018, 2018)
-extract_asian_estimate(demographics_onerace_2019, 2019)
-extract_asian_estimate(demographics_onerace_2021, 2021)
-extract_asian_estimate(demographics_onerace_2022, 2022)
+extract_a_estimate(demographics_onerace_2010, 2010)
+extract_a_estimate(demographics_onerace_2011, 2011)
+extract_a_estimate(demographics_onerace_2012, 2012)
+extract_a_estimate(demographics_onerace_2013, 2013)
+extract_a_estimate(demographics_onerace_2014, 2014)
+extract_a_estimate(demographics_onerace_2015, 2015)
+extract_a_estimate(demographics_onerace_2016, 2016)
+extract_a_estimate(demographics_onerace_2017, 2017)
+extract_a_estimate(demographics_onerace_2018, 2018)
+extract_a_estimate(demographics_onerace_2019, 2019)
+extract_a_estimate(demographics_onerace_2021, 2021)
+extract_a_estimate(demographics_onerace_2022, 2022)
 
-asian_list<- sapply(asian_list, unlist)
+a_list<- sapply(a_list, unlist)
 years<- c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022)
-asian_df<- data.frame(asian_list, years)
+a_df<- data.frame(a_list, years)
 
-ggplot(asian_df, aes(x = years, y = asian_list)) +
+ggplot(a_df, aes(x = years, y = a_list)) +
   geom_line(color = "blue") +
   geom_point(color = "black", size = 3) +
   labs(
